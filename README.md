@@ -1,3 +1,3 @@
-# CC
+# Currency Converter
 
-a [Sails](http://sailsjs.org) application
+Developed by: All in All Developers (ahsanmster CEO)
