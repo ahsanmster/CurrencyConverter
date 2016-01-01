@@ -9,9 +9,10 @@
 module.exports = {
     index: function(req, res) {
         try {
-            var amount = "1"
-            var from = "PKR";
-            var to = "USD"
+            var amount = req.body.amount ? req.body.amount  : '';
+            var from = req.body.from ? req.body.from  : '';
+            var to = req.body.to ? req.body.to  : '';
+            if (amount != "" && form != "" & to != "") {
             sails.request.get({
                 url: 'https://www.google.com/finance/converter?a=' + amount + '&from=' + from + '&to=' + to + '',
             }, function optionalCallback(err, httpResponse, body) {
@@ -35,6 +36,12 @@ module.exports = {
                     });
                 }
             });
+           } else {
+            return res.json({
+              status: 'error'
+              message: 'Some of the required parameters are missing... Please double check your request'
+            });
+           }
         } catch (e) {
             return res.json({
                 status: 'failure',
